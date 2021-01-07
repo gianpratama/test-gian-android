@@ -1,0 +1,68 @@
+<resources>
+
+  <string name="app_name" translatable="false">SehatQ</string>
+
+  <string name="account_sync_profile_information">Account Information</string>
+
+  <string name="emoji_sad" translatable="false">:(</string>
+
+  <string name="info_loading">Loading…</string>
+  <string name="info_warning">Warning</string>
+  <string name="info_no_data">No Data</string>
+
+  <string name="action_done">Done</string>
+  <string name="action_remove_image">Remove image</string>
+  <string name="action_rotate">Rotate</string>
+  <string name="action_retry">Retry</string>
+  <string name="action_tap_to_retry">Tap to retry</string>
+  <string name="action_open_app_settings">Open app settings</string>
+  <string name="action_restart_app">Restart App</string>
+  <string name="action_share">Share</string>
+  <string name="action_show_hide_stacktrace">Show/hide stacktrace</string>
+
+  <string name="error_unknown">Unknown error</string>
+  <string name="error_permission_denied">Permission denied</string>
+  <string name="error_json">JSON Error</string>
+  <string name="error_fatal_restarting">Oops, an unexpected error has occurred.\nSorry for the inconvenience.</string>
+  <string name="error_message_generic">An error occurred, please try again later.</string>
+  <string name="error_message_generic_detail">An error occurred, please try again later.\n%1$s</string>
+  <string name="error_message_generic_detail_code">An error occurred, please try again later.\nError %1$d: %2$s</string>
+  <string name="error_conn_generic">Connection problem</string>
+  <string name="error_conn_400">Bad Request</string>
+  <string name="error_conn_401">Unauthorized</string>
+  <string name="error_conn_403">Forbidden</string>
+  <string name="error_conn_404">Not Found</string>
+  <string name="error_conn_408">Request Timeout</string>
+  <string name="error_conn_500">Internal Server Error</string>
+  <string name="error_conn_501">Not Implemented</string>
+  <string name="error_conn_502">Bad Gateway</string>
+  <string name="error_conn_503">Service Unavailable</string>
+  <string name="error_conn_504">Gateway Timeout</string>
+  <string name="error_conn_maintenance">Server Under Maintenance</string>
+  <string name="error_conn_time_out">Connection Timed Out</string>
+  <string name="error_auth_not_logged_in">You are not logged in.</string>
+  <string name="error_auth_already_logged_in">You are already logged in as %1$s.</string>
+  <string name="error_auth_log_in_expired">Your login has expired.</string>
+  <string name="error_input_username">Username is required</string>
+  <string name="error_input_password">Password is required</string>
+
+  <string name="warning_storage_space">Your internal storage space is running out, please free some spaces on your internal storage.</string>
+
+
+  <string name="info_success_favorite_product">Successfully added favorite product</string>
+  <string name="login">Login</string>
+  <string name="search_product">Search Product</string>
+  <string name="purchase_history">Purchase History</string>
+  <string name="title_home">Home</string>
+  <string name="title_feed">Feed</string>
+  <string name="title_cart">Cart</string>
+  <string name="title_profile">Profile</string>
+  <string name="Buy">Buy</string>
+  <string name="detail_product">Detail Product</string>
+  <string name="password">Password</string>
+  <string name="user_name">User Name</string>
+  <string name="validation_input_data">Please complete your data username or password</string>
+
+  <string name="facebook_app_id">1152208091788704</string>
+  <string name="fb_login_protocol_scheme">fb1152208091788704</string>
+</resources>

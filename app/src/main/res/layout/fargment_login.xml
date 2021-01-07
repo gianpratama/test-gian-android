@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    >
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/margin_xlarge"
+      android:background="@drawable/bg_button_round_grey_primary"
+      android:padding="@dimen/margin_xlarge"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/title_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:text="Login"
+        android:textSize="@dimen/text_xlarge"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/spacing_6"
+        app:boxCornerRadiusBottomStart="@dimen/spacing_6"
+        app:boxCornerRadiusTopEnd="@dimen/spacing_6"
+        app:boxCornerRadiusTopStart="@dimen/spacing_6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_login">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/ed_username"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="sans-serif"
+          android:hint="@string/user_name"
+          android:inputType="textEmailAddress"
+          android:padding="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        android:animateLayoutChanges="true"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/spacing_6"
+        app:boxCornerRadiusBottomStart="@dimen/spacing_6"
+        app:boxCornerRadiusTopEnd="@dimen/spacing_6"
+        app:boxCornerRadiusTopStart="@dimen/spacing_6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_user_name">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/ed_password"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="sans-serif"
+          android:hint="@string/password"
+          android:inputType="textPassword"
+          android:padding="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/checkbox_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Remember name"
+        android:textSize="@dimen/font_10"
+        app:layout_constraintEnd_toStartOf="@+id/sample2"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_password"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_button_round_grey_primary"
+        android:hint="Sign In"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_password"/>
+
+    <FrameLayout
+        android:id="@+id/frag_facebook_login_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:padding="@dimen/margin_default"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_remember"
+        />
+
+    <FrameLayout
+        android:id="@+id/frag_google_login_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
+        android:padding="@dimen/margin_default"
+        app:layout_constraintTop_toBottomOf="@+id/frag_facebook_login_container"
+        />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

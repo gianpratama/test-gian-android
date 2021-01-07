@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FFFFFF</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="accent">#FF4081</color>
+    <color name="colorPrimary">#9A00A3</color>
+    <color name="colorPrimaryDark">#6C0072</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="backgroundHome">#109C00</color>
+    <color name="bacgroundStatus">#0073AF</color>
+    <color name="backgroundProfile">#B80000</color>
+
+    <color name="light_grey">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#E0E0E0</color>
+    <color name="facebook_blue">#415DAE</color>729d3e
+    <color name="facebook_blue_light">#617DBE</color>
+    <color name="colorTextMenu">#27C5BF</color>
+    <color name="titleMenuBlack">#262626</color>
+</resources>

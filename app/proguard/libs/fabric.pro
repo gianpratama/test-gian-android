@@ -1,0 +1,3 @@
+-keep class io.fabric.** { *; }
+-keep interface io.fabric.** { *; }
+-dontwarn io.fabric.**

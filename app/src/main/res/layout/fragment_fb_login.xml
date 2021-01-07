@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btn_main_fb_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_xxlarge"
+        android:paddingRight="@dimen/margin_default"
+        app:fb_radius="@dimen/margin_default"
+        app:fb_iconPosition="left"
+        app:fb_fontIconSize="@dimen/margin_xlarge"
+        app:fb_iconPaddingRight="@dimen/margin_large"
+        app:fb_text="@string/login"
+        app:fb_textColor="@color/white"
+        app:fb_defaultColor="@color/facebook_blue"
+        app:fb_focusColor="@color/facebook_blue_light"
+        app:fb_fontIconResource="&#xf230;"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/margin_xlarge"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetStart="0dp"
+            android:background="@color/white"
+            android:theme="@style/AppTheme.Toolbar"
+            android:elevation="2dp">
+
+            <LinearLayout
+                android:id="@+id/layout_toolbar_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="gone"
+                android:gravity="left">
+
+                <ImageView
+                    android:id="@+id/ic_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/margin_large"
+                    android:src="@drawable/ic_arrow_back"
+                    android:background="?attr/selectableItemBackground"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/detail_product"
+                    android:textSize="@dimen/text_xlarge"
+                    android:layout_marginLeft="@dimen/margin_large"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_search_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_margin="@dimen/margin_default"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_arrow_back"
+                    android:padding="@dimen/margin_default"
+                    android:background="?attr/selectableItemBackground"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_round_grey_primary"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/ed_autoComplete_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:hint="@string/search_product"
+                        android:textColorHint="@color/grey"
+                        android:textColor="@color/titleMenuBlack"
+                        android:layout_weight="1"
+                        android:imeOptions="actionSearch"
+                        android:background="@android:color/transparent"
+                        android:layout_gravity="end"
+                        android:singleLine="true"
+                        android:layout_marginRight="@dimen/margin_default"
+                        android:layout_marginLeft="@dimen/margin_small"
+                        tools:text="samplekldlkdlk"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_search_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btn_back_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_heart"
+                    android:padding="@dimen/margin_default"
+                    android:background="?attr/selectableItemBackground"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_default"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/ed_search_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_10"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:hint="@string/search_product"
+                        android:background="@drawable/bg_button_round_grey_primary"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_gravity="end"
+                        android:singleLine="true"
+                        android:visibility="visible"
+                        android:textColor="@color/grey"
+                        android:editable="false"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="-10dp"
+            android:visibility="gone"
+            android:background="@color/white"
+            android:elevation="2dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="37dp"/>
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
