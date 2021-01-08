@@ -48,7 +48,7 @@ class DashboardFragment : DataListFragment() {
     initViewModel()
 
     ed_search_product.setOnClickListener{
-      SearchProductActivity.launchIntent(context!!)
+      SearchProductActivity.launchIntent(requireContext())
     }
   }
 
@@ -107,7 +107,7 @@ class DashboardFragment : DataListFragment() {
     adapterProduct.setDataList(dataProductList)
 
     adapterProduct.onProductClick = { data, _ ->
-      DetailProductActivity.launchIntent(context!!, data)
+      DetailProductActivity.launchIntent(requireContext(), data)
     }
 
     recycler_product.adapter = adapterProduct

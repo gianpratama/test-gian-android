@@ -44,7 +44,7 @@ class SearchProductFragment : DataListFragment() {
     layout_search_product.visibility = View.VISIBLE
 
     btn_back.setOnClickListener {
-      DashboardActivity.launchIntent(context!!)
+      DashboardActivity.launchIntent(requireContext())
     }
 
     initViewModel()
@@ -59,6 +59,11 @@ class SearchProductFragment : DataListFragment() {
       }
 
       override fun afterTextChanged(s: Editable) {
+        if (s.isNotEmpty()) {
+          recycler_search_product.visibility = View.VISIBLE
+        } else {
+          recycler_search_product.visibility = View.GONE
+        }
         adapterProduct.setDataListFilter { it.title != null && it.title!!.contains(s.toString(), ignoreCase = true) }
       }
     })
@@ -86,7 +91,7 @@ class SearchProductFragment : DataListFragment() {
   override fun initRecyclerAdapter(): DataListRecyclerViewAdapter<Any, ViewHolder> {
     adapterProduct.emptyText = resources.getString(R.string.info_no_data)
     adapterProduct.onSearchProductClick = { data, _ ->
-      DetailProductActivity.launchIntent(context!!, data)
+      DetailProductActivity.launchIntent(requireContext(), data)
     }
 
     adapterProduct.setDiffUtilNotifier { oldList, newList ->

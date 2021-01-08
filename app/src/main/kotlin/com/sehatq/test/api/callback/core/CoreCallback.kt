@@ -8,7 +8,6 @@ import com.sehatq.test.api.util.OnAPIListener
 import com.sehatq.test.model.core.AppError
 import com.sehatq.test.model.core.AppResponse
 import com.sehatq.test.util.Common
-import com.sehatq.test.util.Debugger
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,9 +61,7 @@ abstract class CoreCallback<RESPONSE : AppResponse>(private val listener: OnAPIL
                         val bytes = response.errorBody()!!.bytes()
                         val appResponse = AppResponse(String(bytes, Charset.forName("UTF-8")))
                         errorMessage = appResponse.meta!!.message!!
-                    } catch (e: IOException) {
-                        Debugger.logException(e)
-                    }
+                    } catch (e: IOException) {}
                 } else {
                     errorMessage = response.raw().message()
                 }
@@ -179,7 +176,6 @@ abstract class CoreCallback<RESPONSE : AppResponse>(private val listener: OnAPIL
                 listener.onApiSuccess(data)
             } catch (e: Exception) {
                 exception = e
-                Debugger.logException(e)
             }
 
             if (exception != null) {
@@ -199,7 +195,6 @@ abstract class CoreCallback<RESPONSE : AppResponse>(private val listener: OnAPIL
                 listener.onApiFailure(error)
             } catch (e: Exception) {
                 listener.onApiFailure(AppError(AppError.DEVELOPMENT_UNKNOWN, e.message))
-                Debugger.logException(e)
             }
         }
     }
@@ -212,9 +207,6 @@ abstract class CoreCallback<RESPONSE : AppResponse>(private val listener: OnAPIL
      * in this app, log the user out forcefully.
      */
     protected fun onUnauthorizedFailure(errorMessage: String) {
-        Debugger.log(Log.ERROR, javaClass.simpleName, "Unauthorized access: $errorMessage - Removing account")
-        Debugger.log(Log.ERROR, javaClass.simpleName, "Removing saved account from this device")
-
         Common.showToast(R.string.error_auth_log_in_expired)
     }
 

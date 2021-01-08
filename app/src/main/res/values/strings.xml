@@ -63,6 +63,8 @@
   <string name="user_name">User Name</string>
   <string name="validation_input_data">Please complete your data username or password</string>
 
-  <string name="facebook_app_id">1152208091788704</string>
-  <string name="fb_login_protocol_scheme">fb1152208091788704</string>
+<!--  <string name="facebook_app_id">1152208091788704</string>-->
+  <string name="facebook_app_id">124959011436414</string>
+  <string name="fb_login_protocol_scheme">fb124959011436414</string>
+<!--  <string name="fb_login_protocol_scheme">fb1152208091788704</string>-->
 </resources>

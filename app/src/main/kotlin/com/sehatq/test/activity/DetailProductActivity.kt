@@ -1,29 +1,32 @@
 package com.sehatq.test.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.orhanobut.hawk.Hawk
 import com.sehatq.test.R
-import com.sehatq.test.R.string
 import com.sehatq.test.activity.core.CoreActivity
 import com.sehatq.test.model.remote.ProductPromo
-import com.sehatq.test.util.Common
 import com.sehatq.test.util.Constant
 import kotlinx.android.synthetic.main.activity_detail_product.btn_buy
+import kotlinx.android.synthetic.main.activity_detail_product.btn_favorite
 import kotlinx.android.synthetic.main.activity_detail_product.btn_share
 import kotlinx.android.synthetic.main.activity_detail_product.img_detail_product
-import kotlinx.android.synthetic.main.activity_detail_product.img_favorite
 import kotlinx.android.synthetic.main.activity_detail_product.txt_description
 import kotlinx.android.synthetic.main.activity_detail_product.txt_name_product
 import kotlinx.android.synthetic.main.activity_detail_product.txt_price
 import kotlinx.android.synthetic.main.include_toolbar_search.ic_back
 import kotlinx.android.synthetic.main.include_toolbar_search.layout_toolbar_detail
 
+@SuppressLint("UseCompatLoadingForDrawables")
 class DetailProductActivity : CoreActivity(), View.OnClickListener {
 
-  private var dataProduct : ProductPromo? = null
+  private var dataProduct: ProductPromo? = null
+
+  private var isFavorite = false
+
   override val viewRes = R.layout.activity_detail_product
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,26 +39,35 @@ class DetailProductActivity : CoreActivity(), View.OnClickListener {
     when (v) {
       ic_back -> {
         onBackPressed()
-      } btn_buy -> {
+      }
+      btn_buy -> {
         initAddDataProduct()
-      } btn_share -> {
+      }
+      btn_share -> {
         shareData(dataProduct?.title)
-      } img_favorite -> {
-        Common.showToast(getString(string.info_success_favorite_product))
+      }
+      btn_favorite -> {
+        if (isFavorite) {
+          isFavorite = false
+          btn_favorite.setImageDrawable(getDrawable(R.drawable.ic_heart_disable))
+        } else {
+          isFavorite = true
+          btn_favorite.setImageDrawable(getDrawable(R.drawable.ic_heart))
+        }
       }
     }
   }
 
   private fun initDetailProduct() {
-    layout_toolbar_detail.visibility  = View.VISIBLE
+    layout_toolbar_detail.visibility = View.VISIBLE
 
     if (Hawk.contains(Constant.IS_DATA_PRODUCT)) {
       dataProduct = Hawk.get(Constant.IS_DATA_PRODUCT)
 
       if (dataProduct?.loved == 0)
-        img_favorite.setImageDrawable(getDrawable(R.drawable.ic_heart_disable))
+        btn_favorite.setImageDrawable(getDrawable(R.drawable.ic_heart_disable))
       else
-        img_favorite.setImageDrawable(getDrawable(R.drawable.ic_heart))
+        btn_favorite.setImageDrawable(getDrawable(R.drawable.ic_heart))
 
       img_detail_product.setImageURI(dataProduct?.imageUrl)
       txt_name_product.text = dataProduct?.title
@@ -66,7 +78,7 @@ class DetailProductActivity : CoreActivity(), View.OnClickListener {
     ic_back.setOnClickListener(this)
     btn_buy.setOnClickListener(this)
     btn_share.setOnClickListener(this)
-    img_favorite.setOnClickListener(this)
+    btn_favorite.setOnClickListener(this)
   }
 
   private fun initAddDataProduct() {
@@ -87,7 +99,7 @@ class DetailProductActivity : CoreActivity(), View.OnClickListener {
     PurchaseProductHistoryActivity.launchIntent(this)
   }
 
-  fun shareData(text: String?){
+  fun shareData(text: String?) {
     val intent = Intent(Intent.ACTION_SEND)
     intent.type = "text/plain"
     intent.putExtra(Intent.EXTRA_SUBJECT, text)
@@ -100,7 +112,10 @@ class DetailProductActivity : CoreActivity(), View.OnClickListener {
      * Launch this activity.
      * @param context the context
      */
-    fun launchIntent(context: Context, productPromo: ProductPromo) {
+    fun launchIntent(
+      context: Context,
+      productPromo: ProductPromo
+    ) {
       val intent = Intent(context, DetailProductActivity::class.java)
       Hawk.delete(Constant.IS_LIST_PRODUCT)
       Hawk.put((Constant.IS_DATA_PRODUCT), productPromo)

@@ -26,7 +26,6 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="13dp"
           android:orientation="horizontal"
-          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           tools:listitem="@layout/adapter_recycler_category" />
 
       <androidx.recyclerview.widget.RecyclerView
